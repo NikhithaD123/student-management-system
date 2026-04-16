@@ -5,7 +5,15 @@ class Student:
         self.grade = grade
 
     def to_dict(self):
-        return {"id": self.student_id, "name": self.name, "grade": self.grade}
+        return {
+            "id": self.student_id,
+            "name": self.name,
+            "grade": self.grade
+        }
+
+    @staticmethod
+    def from_dict(data):
+        return Student(data["id"], data["name"], data["grade"])
 
     def __str__(self):
-        return f"ID: {self.student_id} | Name: {self.name} | Grade: {self.grade}"
+        return f"[{self.student_id}] {self.name} | Grade: {self.grade}"
